@@ -1,11 +1,15 @@
 @NonCPS
 def match(regex, str) {
   def m = str =~ regex
+  println(str)
+  println(regex)
   println(m.matches())
+  /*
   sh """
     echo ${m.group(0)}
     echo ${m.group(1)}
   """
+  */
 }
 
 node {
