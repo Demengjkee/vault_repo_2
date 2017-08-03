@@ -2,7 +2,7 @@
 def match(regex, str) {
   def m = str =~ regex
   sh """
-    echo ${m}
+    echo ${m.group(0)}
   """
 }
 
