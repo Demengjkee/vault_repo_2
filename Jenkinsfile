@@ -10,6 +10,6 @@ def match(regex, str) {
 node {
   checkout scm
   def res = sh(returnStdout: true, script:"git log -1 --pretty=%B")
-  match(/Merge pull request #(\d+) from (\w+)\/(\w+).*/,res.stripMargin())
+  match(/Merge pull request #(\d+) from (\w+)\/(\w+)/,res.stripMargin())
   
 }
