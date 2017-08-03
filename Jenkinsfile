@@ -1,6 +1,6 @@
 @NonCPS
 def match(regex, str) {
-  def m = str =~ regex
+  def m = (str =~ regex)
   result = []
   def b = m.matches()
   println(b)
@@ -22,7 +22,7 @@ def match(regex, str) {
 node {
   checkout scm
   def res = sh(returnStdout: true, script:"git log -1 --pretty=%B")
-  def r = match(/Merge pull request #(\d+) from (\w+)\/(\w+)/,res.stripMargin())
+  def r = match(/Merge pull request #(\d+) from (\w+)\/(\w+)/, res)
   println(r)
   
 }
