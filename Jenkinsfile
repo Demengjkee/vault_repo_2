@@ -1,3 +1,4 @@
+@NonCPS
 node {
   checkout scm
   def res = sh(returnStdout: true, script:"git log -1 --pretty=%B")
