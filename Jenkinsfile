@@ -6,6 +6,7 @@ node {
     def a =res.stripMargin()
     def b = m
     sh """
+      echo 0
       echo ${a}
       echo ${b}
     """
