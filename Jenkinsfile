@@ -20,7 +20,24 @@ def match(regex, str) {
 node {
   checkout scm
   def res = sh(returnStdout: true, script:"git log -1 --pretty=%B")
-  def r = match(/Merge pull request #(\d+) from (\w+)\/(\w+)/, res.readLines()[0])
-  println(r)
+  def info = match(/Merge pull request #(\d+) from (\w+)\/(\w+)/, res.readLines()[0])
+  if(info.size() == 3) {
+    stage("PROD Deploy") {
+      
+    }
+    
+    stage("Set tag") {
+      def release_tag = "${info[2]}/release/${info[0]}"
+      sh """
+        git tag --force ${release_tag} `git log -1 --pretty=format:%h`
+        git push --force --tags 
+      """
+      /*https://${token}@github.com/${repo}.git*/
+    }
+    
+    stage("wiki gen") {
+      
+    }
+  }
   
 }
