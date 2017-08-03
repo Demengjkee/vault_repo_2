@@ -1,6 +1,7 @@
 @NonCPS
 def match(regex, str) {
   def m = str =~ regex
+  prinln(m.matches())
   sh """
     echo ${m.group(0)}
     echo ${m.group(1)}
