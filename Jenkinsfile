@@ -2,9 +2,9 @@
 def match(regex, str) {
   def m = str =~ regex
   result = []
-  m.matches()
-  println(m.groupCount())
-  if(m.matches()) {
+  def b = m.matches()
+  println(b)
+  if(b) {
     for(def i = 1; i <= m.groupCount(); i++) {
        result.add(m.group(i))
     }
