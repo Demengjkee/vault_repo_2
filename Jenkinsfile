@@ -1,3 +1,3 @@
 node {
-  sh "echo ${CHANGE_TITLE}"
+  sh "echo $CHANGE_TITLE"
 }
