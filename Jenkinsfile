@@ -1,9 +1,13 @@
 @NonCPS
 def match(regex, str) {
-  
   def m = (str =~ regex)
-  m.matches()
-  return m.group(1)
+  def result = []
+  if(m.matches()) {
+    for(def i = 0; i < m.groupCount(), i++) {
+      result.add(m.group(i + 1)) 
+    }
+  }
+  return result
   /*
   sh """
   
