@@ -4,12 +4,10 @@ node {
   def m = res.stripMargin() =~ /Merge pull request #(\d+) from (\w+)\/(\w+).*/
   if(m) {
     def a =res.stripMargin()
-    def b = m[0]
-    def c = m[1]
+    def b = m
     sh """
       echo ${a}
       echo ${b}
-      echo ${c}
     """
   }
 }
