@@ -1,4 +1,6 @@
 node {
-  result = sh (script: "git log -1 | grep '\\[ci skip\\]'", returnStatus: true) 
-  println(result)  
+  checkout scm
+  sh """
+    cm=git log -1
+  """
 }
