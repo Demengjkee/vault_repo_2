@@ -20,7 +20,7 @@ def match(regex, str) {
 node {
   checkout scm
   def res = sh(returnStdout: true, script:"git log -1 --pretty=%B")
-  def info = match(/Merge pull request #(\d+) from (\w+)\/(\w+)/, res.readLines()[0])
+  def info = match(/Merge pull request #(\d+) from (\w+)\/([\w\/]+)/, res.readLines()[0])
   if(info.size() == 3) {
     stage("PROD Deploy") {
       
