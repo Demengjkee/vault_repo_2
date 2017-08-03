@@ -1,3 +1,3 @@
 node {
-  sh "echo $CHANGE_TITLE"
+  println(env.CHANGE_TITLE)
 }
