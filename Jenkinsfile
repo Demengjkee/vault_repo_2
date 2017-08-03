@@ -6,6 +6,7 @@ def match(regex, str) {
   println(m.matches())
   /*
   sh """
+  
     echo ${m.group(0)}
     echo ${m.group(1)}
   """
