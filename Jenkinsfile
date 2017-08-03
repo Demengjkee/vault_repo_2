@@ -1,9 +1,13 @@
 @NonCPS
 def match(regex, str) {
   def m = str =~ regex
-  println(str)
-  println(regex)
-  println(m.matches())
+  result = []
+  if(m.matches()) {
+    for(def i = 1; i <= m.groupCount(); i++) {
+       result.add(m.group(i))
+    }
+  }
+  return result
   /*
   sh """
   
@@ -16,6 +20,7 @@ def match(regex, str) {
 node {
   checkout scm
   def res = sh(returnStdout: true, script:"git log -1 --pretty=%B")
-  match(/Merge pull request #(\d+) from (\w+)\\/(\w+)/,res.stripMargin())
+  def r = match(/Merge pull request #(\d+) from (\w+)\\/(\w+)/,res.stripMargin())
+  println(r)
   
 }
