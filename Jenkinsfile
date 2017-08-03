@@ -1,5 +1,6 @@
 @NonCPS
 def match(regex, str) {
+  
   def m = (str =~ regex)
   m.matches()
   return m.group(1)
