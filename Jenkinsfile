@@ -1,6 +1,5 @@
 node {
   checkout scm
-  sh """
-    cm=git log -1
-  """
+  res = sh("git log -1")
+  println(res)
 }
